@@ -1,0 +1,6 @@
+version: '3'
+services:
+ go-cd:
+  image: gocd/gocd-server:v18.10.0
+  ports: 
+   - 8153:8153
