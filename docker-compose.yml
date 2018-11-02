@@ -1,6 +1,15 @@
 version: '3'
 services:
- go-cd:
+ go-cd-server:
   image: gocd/gocd-server:v18.10.0
   ports: 
    - 8153:8153
+   - 8154:8154
+  volumes:
+   - /Users/gauravthadani/Work/golang/src/github.com/gauravthadani/cd-pipeline/godata:/godata
+ golang-agent:
+  build: 
+    context: ./
+    dockerfile: golang-agent-file
+  environment:
+   - GO_SERVER_URL=https://go-cd-server:8154/go

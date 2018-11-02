@@ -1,0 +1,2 @@
+FROM gocd/gocd-agent-alpine-3.7:v18.10.0
+RUN apk add go musl-dev make
